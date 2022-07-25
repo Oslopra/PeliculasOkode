@@ -1,1 +1,13 @@
-<p>Search Movie</p>
+<div class="ps-5 pe-5">
+    <app-browser (enter)="fSearch($event)"
+                 (debounce)="fSuggestions($event)"></app-browser>
+    <ul class="list-group" *ngIf="suggestions.length > 0;">
+        <li class="list-group-item" *ngFor="let m of suggestions"><a class="nav-link" [routerLink]="['/movie', m.id]">{{m.title}}</a></li>
+    </ul>
+    <div class="pt-4" *ngIf="movies.length > 0;"> 
+        <h2>Results</h2>
+        <ul class="list-group pT-2" >
+            <li class="list-group-item" *ngFor="let m of movies"><a class="nav-link" [routerLink]="['/movie', m.id]">{{m.title}}</a></li>
+        </ul>
+    </div>
+</div>

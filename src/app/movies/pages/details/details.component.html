@@ -1,0 +1,24 @@
+<h2 *ngIf="!movie; else loading">Cargando</h2>
+<ng-template  #loading>
+    <div class="container pt-3">
+        <div class="row">
+            <div class="col-4">
+                <h2 class="text-center">{{movie.title}}</h2> 
+                <img class="img-fluid" [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"> 
+            </div>
+            <div class="col">
+                <h3>Overview</h3>
+                {{movie.overview}}
+                <hr>
+                <a><b>Date</b> {{movie.release_date}}</a>
+                <br>
+                <a><b>Lenguage</b>
+                    <ul>
+                        <li *ngFor="let l of movie.spoken_languages">{{l.english_name}}</li>
+                    </ul></a>
+            </div>
+        </div>
+        <button class="btn btn-info mt-3" [routerLink]="['/']" >Back</button>
+    </div>
+
+</ng-template>

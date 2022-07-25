@@ -1,1 +1,8 @@
-<p>browser works!</p>
+
+<form (ngSubmit)="fEnter()" autocomplete="off">
+    <input  class='form-control text-center' 
+            [placeholder]="placeholder"
+            name = "input"
+            (input)="fKey()"
+            [(ngModel)]="input">
+</form>
